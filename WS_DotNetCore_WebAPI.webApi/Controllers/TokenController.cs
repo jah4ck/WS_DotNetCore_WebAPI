@@ -46,7 +46,7 @@ namespace WS_DotNetCore_WebAPI.webApi.Controllers
             {
                 new Claim(ClaimTypes.Name, username),
                 new Claim(JwtRegisteredClaimNames.Nbf, new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds().ToString()),
-                new Claim(JwtRegisteredClaimNames.Exp, new DateTimeOffset(DateTime.Now.AddDays(1)).ToUnixTimeSeconds().ToString()),
+                new Claim(JwtRegisteredClaimNames.Exp, new DateTimeOffset(DateTime.Now.AddHours(1)).ToUnixTimeSeconds().ToString()),
             };
 
             var token = new JwtSecurityToken(

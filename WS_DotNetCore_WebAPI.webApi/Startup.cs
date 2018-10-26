@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -35,11 +36,11 @@ namespace WS_DotNetCore_WebAPI.webApi
             services.AddTransient<IRechercheTextRepository, RechercheTextRepository>();
 
             services.AddAuthentication(options => {
-                options.DefaultAuthenticateScheme = "JwtBearer";
-                options.DefaultChallengeScheme = "JwtBearer";
-            }).AddJwtBearer("JwtBearer", jwtBearerOptions =>
+                options.DefaultAuthenticateScheme = "Jwt";
+                options.DefaultChallengeScheme = "Jwt";
+            }).AddJwtBearer("Jwt", Options =>
             {
-                jwtBearerOptions.TokenValidationParameters = new TokenValidationParameters
+                Options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("the secret that needs to be at least 16 characeters long for HmacSha256")),
@@ -72,8 +73,14 @@ namespace WS_DotNetCore_WebAPI.webApi
                 app.UseHsts();
             }
             app.UseAuthentication();
-            app.UseHttpsRedirection();
-            app.UseMvc();
+
+            app.UseMvcWithDefaultRoute();
+
+            app.Run(async (context) =>
+            {
+                context.Response.StatusCode = 404;
+                await context.Response.WriteAsync("Page not found");
+            });            //app.UseMvc();
         }
     }
 }
