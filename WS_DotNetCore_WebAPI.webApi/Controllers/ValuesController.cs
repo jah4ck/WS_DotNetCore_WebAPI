@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DotNetCore_WebAPI.entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WS_DotNetCore_WebAPI.business.Interface;
 
@@ -75,6 +76,7 @@ namespace WS_DotNetCore_WebAPI.webApi.Controllers
 
 
         [HttpPost]
+        [Authorize]
         [Route("Rechercher")]
         public async Task<ActionResult<TaskResult<PresenceTexte>>> Rechercher([FromBody] PresenceTexte presenceTexte)
         {
