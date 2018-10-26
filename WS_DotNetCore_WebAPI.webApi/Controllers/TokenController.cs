@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using DotNetCore_WebAPI.entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -16,10 +17,21 @@ namespace WS_DotNetCore_WebAPI.webApi.Controllers
     public class TokenController : ControllerBase
     {
         [HttpPost]
-        public IActionResult Create(string username, string password)
+        [Route("Create")]
+        public IActionResult Create(UserToken userToken)
         {
+            string username = userToken.username;
+            string password = userToken.password;
+            TaskResult<UserToken> taskResult = new TaskResult<UserToken>();
             if (IsValidUserAndPasswordCombination(username, password))
-                return new ObjectResult(GenerateToken(username));
+            {
+                taskResult.Result = new UserToken
+                {
+                    token = GenerateToken(username)
+            }; 
+                return new ObjectResult(taskResult);
+            }
+                
             return BadRequest();
         }
 

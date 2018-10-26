@@ -44,11 +44,12 @@ namespace WS_DotNetCore_WebAPI.webApi
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("the secret that needs to be at least 16 characeters long for HmacSha256")),
 
-                    ValidateIssuer = true,
-                    ValidIssuer = "The name of the issuer",
+                    //a modifier pour une mise en prod 
+                    ValidateIssuer = false,
+                    //ValidIssuer = "https://localhost:5001",
 
-                    ValidateAudience = true,
-                    ValidAudience = "The name of the audience",
+                    ValidateAudience = false,
+                    //ValidAudience = "https://localhost:5001",
 
                     ValidateLifetime = true, //validate the expiration and not before values in the token
 
