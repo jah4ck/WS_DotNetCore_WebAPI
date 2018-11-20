@@ -3,17 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WS_DotNetCore_WebAPI.webApi", "WS_DotNetCore_WebAPI.webApi\WS_DotNetCore_WebAPI.webApi.csproj", "{29100D40-793C-40B2-8B1A-6A0BBAD13E71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WS_DotNetCore_WebAPI.webApi", "WS_DotNetCore_WebAPI.webApi\WS_DotNetCore_WebAPI.webApi.csproj", "{29100D40-793C-40B2-8B1A-6A0BBAD13E71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WS_DotNetCore_WebAPI.business", "WS_DotNetCore_WebAPI.business\WS_DotNetCore_WebAPI.business.csproj", "{AB3AC14F-AEA0-42FC-8D43-EA2BD43EFA09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WS_DotNetCore_WebAPI.business", "WS_DotNetCore_WebAPI.business\WS_DotNetCore_WebAPI.business.csproj", "{AB3AC14F-AEA0-42FC-8D43-EA2BD43EFA09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WS_DotNetCore_WebAPI.business.Interface", "WS_DotNetCore_WebAPI.business.Interface\WS_DotNetCore_WebAPI.business.Interface.csproj", "{980041FA-2A9A-407E-A0E9-A634DC9AD0E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WS_DotNetCore_WebAPI.business.Interface", "WS_DotNetCore_WebAPI.business.Interface\WS_DotNetCore_WebAPI.business.Interface.csproj", "{980041FA-2A9A-407E-A0E9-A634DC9AD0E1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCore_WebAPI.entities", "..\DotNetCore_WebAPI\DotNetCore_WebAPI.entities\DotNetCore_WebAPI.entities.csproj", "{F0125B9A-E539-4C9F-8446-9F8A903617A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WS_DotNetCore_WebAPI.repository", "WS_DotNetCore_WebAPI.repository\WS_DotNetCore_WebAPI.repository.csproj", "{2BF4AAD3-E12D-4563-AD31-0EED1E77C1D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WS_DotNetCore_WebAPI.repository", "WS_DotNetCore_WebAPI.repository\WS_DotNetCore_WebAPI.repository.csproj", "{2BF4AAD3-E12D-4563-AD31-0EED1E77C1D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WS_DotNetCore_WebAPI.repository.Interface", "WS_DotNetCore_WebAPI.repository.Interface\WS_DotNetCore_WebAPI.repository.Interface.csproj", "{BDB43748-8AA2-4CEB-ACF4-E6FD5DCBF1E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WS_DotNetCore_WebAPI.repository.Interface", "WS_DotNetCore_WebAPI.repository.Interface\WS_DotNetCore_WebAPI.repository.Interface.csproj", "{BDB43748-8AA2-4CEB-ACF4-E6FD5DCBF1E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A2A1DA2F-872A-4646-B898-BE10AF2ACA1C}"
+	ProjectSection(SolutionItems) = preProject
+		todo.txt = todo.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
