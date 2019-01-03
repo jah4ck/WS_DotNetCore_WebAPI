@@ -17,6 +17,7 @@ using WS_DotNetCore_WebAPI.business;
 using WS_DotNetCore_WebAPI.business.Interface;
 using WS_DotNetCore_WebAPI.repository;
 using WS_DotNetCore_WebAPI.repository.Interface;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace WS_DotNetCore_WebAPI.webApi
 {
@@ -58,7 +59,27 @@ namespace WS_DotNetCore_WebAPI.webApi
                 };
             });
 
+            
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "WS_DotNetCore_WebAPI", Version = "v1" });
+                // Swagger 2.+ support
+                c.AddSecurityDefinition("Bearer", new ApiKeyScheme
+                {
+                    In = "header",
+                    Description = "Please insert JWT with Bearer into field",
+                    Name = "Authorization",
+                    Type = "apiKey"
+                });
+
+                c.AddSecurityRequirement(new Dictionary<string, IEnumerable<string>>
+                {
+                    { "Bearer", new string[] { } }
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,6 +93,17 @@ namespace WS_DotNetCore_WebAPI.webApi
             {
                 app.UseHsts();
             }
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "WS_DotNetCore_WebAPI V1");
+            });
+
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+
             app.UseAuthentication();
 
             app.UseMvcWithDefaultRoute();
